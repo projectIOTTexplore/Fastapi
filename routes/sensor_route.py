@@ -47,7 +47,7 @@ def my_function():
 
 
 @sensor.post('/add-data-json')
-async def post_time():
+async def add_data_json():
     # Start test a few secs from now.
     start_time = datetime.datetime.now() + datetime.timedelta(seconds=5)
     run_time = datetime.timedelta(minutes=2)  # How long to iterate function.
@@ -70,19 +70,6 @@ async def post_time():
     return {
         "message":"success"
     }
-
-@sensor.post('/add-sensor')
-async def add_sensor(sensor:int):
-    add_ = Path_sensor_count.insert({"sensor":sensor})
-    if add_ : 
-        return {
-            "success"
-        }
-    else :
-        {
-            "faild"
-        }
-
 
 @sensor.post('/add-data')
 async def add_data(data_sensor: Datasensor):
