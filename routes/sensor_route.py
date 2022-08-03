@@ -99,7 +99,7 @@ async def timestamp():
 
 
 @sensor.get('/find-by-id-sensor')
-async def find_by_id_sensor(id:int):
+async def find_by_id_sensor(id:str):
     find_ = Path.find({"sensor":id})
     if find_ :
         return Datas_Sensors_Entity(find_)
@@ -109,7 +109,7 @@ async def find_by_id_sensor(id:int):
         }
 
 @sensor.post('/del-sensor')
-async def del_sensor(id:int):
+async def del_sensor(id:str):
     del_ = Path.delete_many({"sensor":id})
     if del_ :
         return {
